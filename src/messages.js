@@ -1,8 +1,10 @@
 export default {
   en: {
-    'homepage': 'AAAAA',
+    'navbar-homepage': 'Home',
+    'navbar-about': 'About Us',
   },
   sr: {
-    'homepage': 'BBBBB',
+    'navbar-homepage': 'Почетна',
+    'navbar-about': 'О Нама',
   },
 };

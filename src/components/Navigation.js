@@ -6,12 +6,12 @@ import {FormattedMessage} from 'react-intl';
 import {setLocale} from '../actions/locale';
 
 
-export class Navigation extends Component {
+class Navigation extends Component {
   render() {
     return (
       <div style={{display: 'block'}}>
-        <Link to='/'><FormattedMessage id="homepage" defaultMessage="Homepage"/></Link>
-        <Link to='/about'>AboutPage</Link>
+        <Link to='/'><FormattedMessage id="navbar-homepage" defaultMessage="Home"/></Link>
+        <Link to='/about'><FormattedMessage id="navbar-about" defaultMessage="About"/></Link>
         <a onClick={() => this.props.setLocale('en')}>EN</a>
         <a onClick={() => this.props.setLocale('sr')}>SR</a>
       </div>

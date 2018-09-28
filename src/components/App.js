@@ -4,9 +4,9 @@ import {IntlProvider} from 'react-intl';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import messages from '../messages';
-import {AboutPage} from './AboutPage';
-import {HomePage} from './HomePage';
-import {Navigation} from './Navigation';
+import AboutPage from './AboutPage';
+import HomePage from './HomePage';
+import Navigation from './Navigation';
 
 class App extends Component {
   render() {

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 
-export class AboutPage extends Component {
+class AboutPage extends Component {
   render() {
     return (
       <div>
