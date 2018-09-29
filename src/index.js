@@ -7,6 +7,8 @@ import en from 'react-intl/locale-data/en';
 import sr from 'react-intl/locale-data/sr';
 import {localeSet} from './actions/locale';
 import App from './components/App';
+import 'bootstrap';
+import './index.scss';
 import './main.css';
 
 addLocaleData(en);
