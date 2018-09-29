@@ -3,12 +3,14 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const WebpackMd5Hash = require('webpack-md5-hash');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: __dirname + '/dist',
-    filename: 'bundle.js',
+    filename: '[name].[hash].js',
   },
   module: {
     rules: [
@@ -35,18 +37,20 @@ module.exports = {
     extensions: ['*', '.js', '.jsx'],
   },
   plugins: [
+    new CleanWebpackPlugin('dist', {} ),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
       Util: 'exports-loader?Util!bootstrap/js/dist/util',
     }),
     new MiniCssExtractPlugin({
-      filename: 'style.css',
+      filename: 'style.[contenthash].css',
     }),
     new HtmlWebPackPlugin({
       template: './src/index.html',
     }),
     new webpack.HotModuleReplacementPlugin(),
+    new WebpackMd5Hash(),
   ],
   devServer: {
     contentBase: './dist',
