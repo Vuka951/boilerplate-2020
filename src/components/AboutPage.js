@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {FormattedMessage} from 'react-intl';
 
 class AboutPage extends Component {
   render() {
     return (
       <div>
-        <h1>THis is the about page</h1>
+        <FormattedMessage id="aboutpage-text" defaultMessage="This is some Text on the About page"/>
       </div>
     );
   }
