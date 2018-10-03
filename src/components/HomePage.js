@@ -6,6 +6,7 @@ class HomePage extends Component {
   render() {
     return (
       <div>
+      <img src={require('./yes.jpg')} />
         <div className="jumbotron">
           <FormattedMessage id="homepage-text" defaultMessage="This is some Text on the home page"/>
           <nav className="navbar navbar-expand-lg navbar-light bg-light">
