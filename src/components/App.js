@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 import messages from '../messages';
 import AboutPage from './AboutPage';
 import HomePage from './HomePage';
-import Navigation from './Navigation';
+import Navbar from './Navbar/NavBar';
 
 class App extends Component {
   render() {
@@ -15,7 +15,7 @@ class App extends Component {
       <IntlProvider locale={lang} messages={messages[lang]}>
         <BrowserRouter>
           <div>
-            <Navigation/>
+            <Navbar/>
             <Route exact path='/' component={HomePage}/>
             <Route exact path='/about' component={AboutPage}/>
           </div>

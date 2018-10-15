@@ -11,6 +11,7 @@ module.exports = {
   output: {
     path: __dirname + '/dist',
     filename: '[name].[hash].js',
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -66,6 +67,7 @@ module.exports = {
   devServer: {
     contentBase: './dist',
     hot: true,
+    historyApiFallback: true,
   },
   optimization: {
     minimizer: [
