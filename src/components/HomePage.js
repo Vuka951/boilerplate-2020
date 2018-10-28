@@ -7,6 +7,7 @@ class HomePage extends Component {
     return (
       <div>
         <div className="jumbotron">
+          <i className="fab fa-linkedin-in"></i>
           <FormattedMessage id="homepage-text" defaultMessage="This is some Text on the home page"/>
         </div>
       </div>
