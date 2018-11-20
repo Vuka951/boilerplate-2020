@@ -5,6 +5,13 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
+const PurgecssPlugin = require('purgecss-webpack-plugin');
+const glob = require('glob');
+const path = require('path');
+
+const PATHS = {
+  src: path.join(__dirname, 'src'),
+};
 
 module.exports = {
   entry: './src/index.js',
@@ -69,6 +76,9 @@ module.exports = {
     }),
     new MiniCssExtractPlugin({
       filename: 'style.[contenthash].css',
+    }),
+    new PurgecssPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`, {nodir: true}), whitelistPatterns: [/collaps/, /dropdown/, /show/],
     }),
     new HtmlWebPackPlugin({
       template: './src/index.html',
