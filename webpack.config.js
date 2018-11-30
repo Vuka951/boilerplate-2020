@@ -4,7 +4,6 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const WebpackMd5Hash = require('webpack-md5-hash');
 const PurgecssPlugin = require('purgecss-webpack-plugin');
 const glob = require('glob');
 const path = require('path');
@@ -84,7 +83,6 @@ module.exports = {
       template: './src/index.html',
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new WebpackMd5Hash(),
   ],
   devServer: {
     contentBase: './dist',
