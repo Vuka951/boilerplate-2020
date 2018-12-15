@@ -90,6 +90,17 @@ module.exports = {
     historyApiFallback: true,
   },
   optimization: {
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        vendors: false,
+        // vendors chunk
+        vendor: {
+          chunks: 'all',
+          test: /node_modules/,
+        },
+      },
+    },
     minimizer: [
       new UglifyJsPlugin({
         test: /\.js(\?.*)?$/i,
