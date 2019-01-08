@@ -39,5 +39,17 @@
         2
       ],
       "linebreak-style": 0
+    },
+    "settings": {
+      "react": {
+        "createClass": "createReactClass",
+        "pragma": "React", 
+        "version": "detect"
+      },
+      "propWrapperFunctions": [
+          "forbidExtraProps",
+          {"property": "freeze", "object": "Object"},
+          {"property": "myFavoriteWrapper"}
+      ]
     }
     }
