@@ -65,12 +65,16 @@ module.exports = {
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
+    alias: {
+      'jquery': 'jquery/dist/jquery.slim.min.js',
+    },
   },
   plugins: [
     new CleanWebpackPlugin('dist', {} ),
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
+      Popper: ['popper,js', 'default'],
       Util: 'exports-loader?Util!bootstrap/js/dist/util',
     }),
     new MiniCssExtractPlugin({
