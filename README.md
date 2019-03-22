@@ -4,4 +4,5 @@
 *   Redux
 *   I18n
 *   Bootstrap
+*   Font Awesome
 *   Linting
