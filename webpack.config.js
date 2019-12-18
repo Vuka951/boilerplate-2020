@@ -4,13 +4,6 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const PurgecssPlugin = require('purgecss-webpack-plugin');
-const glob = require('glob');
-const path = require('path');
-
-const PATHS = {
-  src: path.join(__dirname, 'src'),
-};
 
 module.exports = {
   entry: './src/index.js',
@@ -65,23 +58,11 @@ module.exports = {
   },
   resolve: {
     extensions: ['*', '.js', '.jsx'],
-    alias: {
-      'jquery': 'jquery/dist/jquery.slim.min.js',
-    },
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new webpack.ProvidePlugin({
-      $: 'jquery',
-      jQuery: 'jquery',
-      Popper: ['popper,js', 'default'],
-      Util: 'exports-loader?Util!bootstrap/js/dist/util',
-    }),
     new MiniCssExtractPlugin({
       filename: 'style.[contenthash].css',
-    }),
-    new PurgecssPlugin({
-      paths: glob.sync(`${PATHS.src}/**/*`, {nodir: true}), whitelistPatterns: [/collaps/, /dropdown/, /show/],
     }),
     new HtmlWebPackPlugin({
       template: './src/index.html',

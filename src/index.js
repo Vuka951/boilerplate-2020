@@ -7,9 +7,7 @@ import en from 'react-intl/locale-data/en';
 import sr from 'react-intl/locale-data/sr';
 import {localeSet} from './actions/locale';
 import App from './components/App';
-import 'bootstrap';
-import './index.scss';
-import './main.css';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 addLocaleData(en);
 addLocaleData(sr);
@@ -20,6 +18,7 @@ if (localStorage.boilerLang) {
 
 ReactDOM.render(
   <Provider store={store}>
+    <CssBaseline />
     <App/>
   </Provider>,
   document.getElementById('app')

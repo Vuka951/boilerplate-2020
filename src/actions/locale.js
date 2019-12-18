@@ -2,7 +2,7 @@ import {LOCALE_SET} from '../types';
 
 export const localeSet = (lang) => ({
   type: LOCALE_SET,
-  lang,
+  payload: lang,
 });
 
 export const setLocale = (lang) => (dispatch) => {

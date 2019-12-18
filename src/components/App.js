@@ -1,12 +1,20 @@
 import React, {Component} from 'react';
-import {BrowserRouter, Route} from 'react-router-dom';
-import {IntlProvider} from 'react-intl';
+// Routing
+import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
+// Redux Connect
 import {connect} from 'react-redux';
+// Prop Types
 import PropTypes from 'prop-types';
+// React Intl
+import {IntlProvider} from 'react-intl';
 import messages from '../messages';
+// Components
 import AboutPage from './AboutPage';
 import HomePage from './HomePage';
 import Navbar from './Navbar/NavBar';
+// Styles
+import '../index.scss';
+import '../main.css';
 
 class App extends Component {
   render() {
@@ -14,11 +22,12 @@ class App extends Component {
     return (
       <IntlProvider locale={lang} messages={messages[lang]}>
         <BrowserRouter>
-          <div>
-            <Navbar/>
+          <Navbar/>
+          <Switch>
             <Route exact path='/' component={HomePage}/>
             <Route exact path='/about' component={AboutPage}/>
-          </div>
+            <Redirect from='*' to={'/'}/>
+          </Switch>
         </BrowserRouter>
       </IntlProvider>
     );
@@ -29,10 +38,10 @@ App.propTypes = {
   lang: PropTypes.string.isRequired,
 };
 
-function mapStateToProps(state) {
-  return {
-    lang: state.locale.lang,
-  };
-}
+const mapStateToProps = (state) => ({
+  lang: state.locale.lang,
+});
 
-export default connect(mapStateToProps)(App);
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
