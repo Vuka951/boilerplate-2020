@@ -3,6 +3,6 @@
 *   React
 *   Redux
 *   I18n
-*   Bootstrap
-*   Font Awesome
+*   Materail UI React
+*   Font Awesome Icons
 *   Linting
