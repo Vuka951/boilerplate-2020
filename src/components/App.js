@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 // Routing
 import {BrowserRouter, Route, Switch, Redirect} from 'react-router-dom';
 // Redux Connect
@@ -16,22 +16,20 @@ import Navbar from './Navbar/NavBar';
 import '../index.scss';
 import '../main.css';
 
-class App extends Component {
-  render() {
-    const {lang} = this.props;
-    return (
-      <IntlProvider locale={lang} messages={messages[lang]}>
-        <BrowserRouter>
-          <Navbar/>
-          <Switch>
-            <Route exact path='/' component={HomePage}/>
-            <Route exact path='/about' component={AboutPage}/>
-            <Redirect from='*' to={'/'}/>
-          </Switch>
-        </BrowserRouter>
-      </IntlProvider>
-    );
-  }
+function App(props) {
+  const {lang} = props;
+  return (
+    <IntlProvider locale={lang} messages={messages[lang]}>
+      <BrowserRouter>
+        <Navbar/>
+        <Switch>
+          <Route exact path='/' component={HomePage}/>
+          <Route exact path='/about' component={AboutPage}/>
+          <Redirect from='*' to={'/'}/>
+        </Switch>
+      </BrowserRouter>
+    </IntlProvider>
+  );
 }
 
 App.propTypes = {
