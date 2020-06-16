@@ -17,7 +17,8 @@ import {useHistory} from 'react-router-dom';
 // Icons
 import LanguageIcon from '@material-ui/icons/Language';
 // Actions
-import {setLocale} from '../../actions/locale';
+import {changeLocale} from '../../actions/locale';
+import {getUsers} from '../../actions/users';
 
 const useStyles = makeStyles({
   langButton: {
@@ -39,13 +40,13 @@ function Navbar(props) {
   const handleClose = (lang = '') => {
     setAnchorEl(null);
     if (typeof(lang) === 'string') {
-      props.setLocale(lang);
+      props.changeLocale(lang);
     }
   };
   return (
     <AppBar position="static">
       <Toolbar>
-        <IconButton edge="start" color="inherit" aria-label="menu">
+        <IconButton edge="start" color="inherit" aria-label="menu" onClick={() => props.getUsers()}>
           <MenuIcon />
         </IconButton>
         <Typography variant="h6">
@@ -90,7 +91,8 @@ function Navbar(props) {
 }
 
 Navbar.propTypes = {
-  setLocale: PropTypes.func.isRequired,
+  changeLocale: PropTypes.func.isRequired,
+  getUsers: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -98,7 +100,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  setLocale,
+  changeLocale,
+  getUsers,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Navbar);

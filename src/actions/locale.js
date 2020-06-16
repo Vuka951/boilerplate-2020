@@ -1,11 +1,11 @@
-import {LOCALE_SET} from '../types';
+import {LOCALE_SET, LOCALE_CHANGE} from '../types';
 
 export const localeSet = (lang) => ({
   type: LOCALE_SET,
   payload: lang,
 });
 
-export const setLocale = (lang) => (dispatch) => {
-  localStorage.boilerLang = lang;
-  dispatch(localeSet(lang));
-};
+export const changeLocale = (lang) => ({
+  type: LOCALE_CHANGE,
+  payload: lang,
+});
