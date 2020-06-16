@@ -9,7 +9,6 @@ const getCurrentUsers = (state) => {
 
 function* handleGetUsers() {
   const users = yield select(getCurrentUsers);
-  console.log(users);
   const newUsers = yield call(fetchUsers, users);
   yield put(setUsers(newUsers));
 }

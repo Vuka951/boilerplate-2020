@@ -1,5 +1,5 @@
 export const fetchUsers = async (oldUsers) => {
-  console.log(oldUsers);
+  console.log('oldUsers', oldUsers);
   const res = await fetch('https://jsonplaceholder.typicode.com/users');
   const data = await res.json();
   return data;
